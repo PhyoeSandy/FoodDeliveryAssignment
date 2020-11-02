@@ -1,6 +1,8 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'com.google.gms.google-services'
 
 android {
     compileSdkVersion 30
@@ -22,6 +24,15 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
@@ -30,8 +41,37 @@ dependencies {
     implementation 'androidx.core:core-ktx:1.3.2'
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.2'
+
+    implementation rootProject.ext.libraries.material
+    implementation rootProject.ext.libraries.glide
+    implementation rootProject.ext.libraries.liveData
+    implementation rootProject.ext.libraries.recyclerView
+
+    // lifecycle components
+    implementation rootProject.ext.libraries.lifeCycle
+    kapt rootProject.ext.libraries.lifeCycleCompiler
+
+    //RxKotlin
+    implementation rootProject.ext.libraries.rxKotlin
+    implementation rootProject.ext.libraries.rxAndroid
+
+    // Image Slider
+    implementation rootProject.ext.libraries.imageSlider
+
+    //firebase
+    implementation platform(rootProject.ext.libraries.firebaseBOM)
+    implementation rootProject.ext.libraries.cloudFirestore
+    implementation rootProject.ext.libraries.realtimedb
+    implementation rootProject.ext.libraries.fbStorage
+    implementation rootProject.ext.libraries.authentication
+    implementation rootProject.ext.libraries.remoteConfig
+
+
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+    implementation project(":shared")
 
 }

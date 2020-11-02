@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    tools:context=".fragments.RestaurantFragment">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:backgroundTint="@color/background_color"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <androidx.appcompat.widget.SearchView
+                    android:id="@+id/searchView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_medium_2"
+                    android:layout_marginTop="@dimen/margin_medium_2"
+                    android:layout_marginEnd="@dimen/margin_xxlarge"
+                    android:layout_marginBottom="@dimen/margin_medium_2"
+                    android:background="@drawable/search_background"
+                    app:queryHint="@string/search_hint" />
+
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/searchView"
+                    android:layout_alignParentEnd="true"
+                    android:layout_margin="@dimen/margin_medium"
+                    android:src="@drawable/ic_baseline_short_text_24" />
+
+                <TextView
+                    android:id="@+id/tvPopularChoice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/searchView"
+                    android:layout_marginStart="@dimen/margin_medium"
+                    android:text="@string/popular_choices"
+                    android:textColor="@color/text_color_pink"
+                    android:textSize="@dimen/text_regular_3x"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/tvPopularChoice"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="@dimen/margin_medium_2"
+                    android:text="@string/show_all" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvCategory"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tvPopularChoice"
+                    android:layout_marginTop="@dimen/margin_medium_2" />
+
+            </RelativeLayout>
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/new_restaurants"
+                android:textColor="@color/text_color_pink"
+                android:textSize="@dimen/text_regular_3x"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginEnd="@dimen/margin_medium_2"
+                android:text="@string/show_all"
+                android:textStyle="bold" />
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvHomeTwo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:backgroundTint="@color/background_color"
+            tools:listitem="@layout/item_restaurant_small" />
+    </androidx.core.widget.NestedScrollView>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

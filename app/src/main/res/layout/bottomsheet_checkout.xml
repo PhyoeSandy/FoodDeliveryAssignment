@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="@dimen/margin_medium_2">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/ivThankYou"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/success_height"
+            android:scaleType="centerCrop"
+            android:src="@drawable/success"/>
+
+        <TextView
+            android:id="@+id/tvThankYou"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/thankyou"
+            style="@style/CoralText"
+            android:layout_marginTop="@dimen/margin_large"
+            android:layout_below="@id/ivThankYou"
+            android:layout_centerHorizontal="true"/>
+
+        <TextView
+            android:id="@+id/tvOrder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/order_section"
+            android:layout_marginTop="@dimen/margin_medium_2"
+            android:layout_below="@id/tvThankYou"
+            android:layout_centerHorizontal="true"/>
+
+        <TextView
+            android:id="@+id/btnOrder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/order_track"
+            android:paddingStart="@dimen/margin_order"
+            android:paddingEnd="@dimen/margin_order"
+            android:paddingTop="@dimen/margin_card_medium_2"
+            android:paddingBottom="@dimen/margin_card_medium_2"
+            android:background="@drawable/bg_rounded_coral"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/tvOrder"
+            android:textColor="@color/colorWhite"
+            android:layout_marginTop="@dimen/margin_order"/>
+
+        <TextView
+            android:id="@+id/tvSomething"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/btnOrder"
+            style="@style/BlackText"
+            android:layout_marginTop="@dimen/margin_xlarge"
+            android:text="@string/order_smth" />
+
+    </RelativeLayout>
+
+</com.google.android.material.card.MaterialCardView>

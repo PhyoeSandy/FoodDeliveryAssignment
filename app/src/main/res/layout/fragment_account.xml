@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.AccountFragment">
+
+    <RelativeLayout
+        android:id="@+id/rlAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_medium_2">
+
+        <TextView
+            android:id="@+id/btnCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cancel"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="Edit Profile"
+            android:layout_centerHorizontal="true"/>
+
+        <TextView
+            android:id="@+id/btnSave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:text="Save"/>
+
+    </RelativeLayout>
+
+    <com.padcmyanmar.padcx.fooddeliveryassignment.views.components.RoundedCornerImageView
+        android:id="@+id/ivProfile"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        app:cornerRadius="20dp"
+        android:scaleType="fitXY"
+        android:layout_below="@id/rlAppBar"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/profile"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ivProfile"
+        android:layout_marginTop="@dimen/margin_xxlarge"
+        android:layout_marginStart="@dimen/margin_label"
+        android:layout_marginEnd="@dimen/margin_large">
+
+        <TextView
+            android:id="@+id/tvEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="YOUR EMAIL"/>
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvEmail"
+            android:inputType="textPersonName"/>
+
+        <TextView
+            android:id="@+id/tvPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/etEmail"
+            android:text="YOUR PASSWORD"/>
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvPassword"
+            android:inputType="textPassword"/>
+
+        <TextView
+            android:id="@+id/tvPhone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/etPassword"
+            android:text="YOUR PHONE"/>
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvPhone"
+            android:inputType="phone"/>
+
+        <TextView
+            android:id="@+id/tvCity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/etPhone"
+            android:text="CITY STATE"/>
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etCity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvCity"
+            android:inputType="text"/>
+
+        <TextView
+            android:id="@+id/tvCountry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/etCity"
+            android:text="COUNTRY"/>
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etCountry"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvCountry"
+            android:inputType="textPostalAddress"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

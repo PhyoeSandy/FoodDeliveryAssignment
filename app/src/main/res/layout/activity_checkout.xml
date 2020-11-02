@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.CheckoutActivity">
+
+    <RelativeLayout
+        android:id="@+id/rlAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/btnBack"
+            android:src="@drawable/ic_baseline_arrow_back_black_ios_24"
+            android:layout_width="@dimen/margin_large"
+            android:layout_marginTop="@dimen/margin_large"
+            android:layout_marginStart="@dimen/margin_large"
+            android:layout_height="@dimen/margin_large"/>
+
+        <TextView
+            android:id="@+id/tvAppBarTitle"
+            android:text="My Order"
+            android:layout_width="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:layout_alignBottom="@id/btnBack"
+            android:textSize="@dimen/text_regular_2x"
+            android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlRestaurant"
+        android:layout_below="@id/rlAppBar"
+        android:layout_marginTop="@dimen/margin_large"
+        android:layout_marginStart="@dimen/margin_medium_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.padcmyanmar.padcx.fooddeliveryassignment.views.components.RoundedCornerImageView
+            android:id="@+id/ivRestaurant"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cornerRadius="10dp"
+            android:src="@drawable/ic_launcher_background"/>
+
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/item_name"
+            android:textStyle="bold"
+            android:textSize="@dimen/text_heading_2x"
+            android:layout_marginLeft="@dimen/margin_medium_2"
+            android:layout_toRightOf="@id/ivRestaurant"/>
+
+        <TextView
+            android:id="@+id/tvType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@id/tvName"
+            android:layout_below="@id/tvName"
+            android:text="@string/restaurant_name"/>
+
+        <TextView
+            android:id="@+id/tvRatings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@id/tvType"
+            android:layout_below="@id/tvType"
+            android:drawableStart="@drawable/ic_baseline_star_24"
+            android:text="@string/ratings"/>
+
+        <TextView
+            android:id="@+id/tvType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/restaurant_address"
+            android:layout_alignStart="@id/tvType"
+            android:layout_below="@id/tvRatings"
+            android:drawableStart="@drawable/ic_baseline_location_on_24"/>
+
+    </RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvOrders"
+        android:layout_alignStart="@id/rlRestaurant"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rlRestaurant" />
+
+    <TextView
+        android:id="@+id/tvAddFoods"
+        android:layout_below="@id/rvOrders"
+        android:layout_width="wrap_content"
+        android:layout_alignStart="@id/rlRestaurant"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/margin_medium"
+        android:text="@string/add_foods" />
+
+    <TextView
+        android:id="@+id/tvInstructions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@id/rlRestaurant"
+        android:text="Delivery instructions"
+        android:padding="@dimen/margin_medium"
+        android:layout_below="@id/tvAddFoods"/>
+
+    <TextView
+        android:id="@+id/tvAddNotes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/tvInstructions"
+        android:padding="@dimen/margin_medium"
+        android:layout_alignParentEnd="true"
+        android:text="Add notes + " />
+
+    <View
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:background="@color/colorGray"
+        android:layout_below="@id/tvInstructions"/>
+
+    <TextView
+        android:id="@+id/tvSubTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@id/rlRestaurant"
+        android:padding="@dimen/margin_medium"
+        android:layout_below="@id/tvInstructions"
+        android:text="Subtotal" />
+
+    <TextView
+        android:id="@+id/tvSubTotalCost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/tvSubTotal"
+        android:padding="@dimen/margin_medium"
+        style="@style/BlackText"
+        android:layout_alignParentEnd="true"
+        android:text="$64.00" />
+
+    <TextView
+        android:id="@+id/tvDelivery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@id/rlRestaurant"
+        android:padding="@dimen/margin_medium"
+        android:layout_below="@id/tvSubTotal"
+        android:text="Delivery Cost" />
+
+    <TextView
+        android:id="@+id/tvDeliveryCost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/tvDelivery"
+        android:padding="@dimen/margin_medium"
+        style="@style/BlackText"
+        android:layout_alignParentEnd="true"
+        android:text="Free" />
+
+    <View
+        android:id="@+id/line2"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:background="@color/colorGray"
+        android:layout_below="@id/tvDelivery"/>
+
+    <TextView
+        android:id="@+id/tvCheckout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_rounded_coral"
+        android:layout_below="@id/line2"
+        android:layout_marginTop="@dimen/margin_xxlarge"
+        android:layout_centerHorizontal="true"
+        android:paddingStart="@dimen/login_padding"
+        android:paddingEnd="@dimen/login_padding"
+        android:paddingTop="@dimen/margin_card_medium_2"
+        android:paddingBottom="@dimen/margin_card_medium_2"
+        android:text="Check out" />
+
+</RelativeLayout>

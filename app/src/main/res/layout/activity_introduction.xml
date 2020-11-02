@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.IntroductionActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tvLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:textSize="@dimen/text_regular_3x"
+            android:layout_margin="@dimen/margin_medium_2"
+            android:text="@string/login"
+            android:textColor="@color/text_color_pink"
+            android:textStyle="bold" />
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/introViewPager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/tabLayout"
+            android:layout_below="@id/tvLogin"
+            android:layout_marginBottom="@dimen/margin_medium_2" />
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@android:color/transparent"
+            android:layout_above="@id/btnCreateAccount"
+            app:tabBackground="@drawable/tab_selector"
+            app:tabGravity="center"
+            app:tabIndicatorHeight="0dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCreateAccount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/btnContinueWithFB"
+            android:layout_marginStart="@dimen/margin_medium_2"
+            android:layout_marginEnd="@dimen/margin_medium_2"
+            android:backgroundTint="@color/text_color_pink"
+            android:text="@string/create_account"
+            android:textAllCaps="false"
+            app:cornerRadius="@dimen/margin_medium_2" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnContinueWithFB"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="@dimen/margin_medium_2"
+            android:layout_marginEnd="@dimen/margin_medium_2"
+            android:layout_marginBottom="@dimen/margin_xxlarge"
+            android:backgroundTint="@color/first_color"
+            android:drawableStart="@drawable/ic_baseline_sentiment_very_satisfied_24"
+            android:text="@string/continue_with_facebook"
+            android:textAllCaps="false"
+            android:textColor="@color/text_color_bold"
+            app:cornerRadius="@dimen/margin_medium_2" />
+
+    </RelativeLayout>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

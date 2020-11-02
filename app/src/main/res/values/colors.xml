@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#6200EE</color>
-    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorPrimary">#EF5350</color>
+    <color name="colorWhite">#FFF</color>
+    <color name="colorBlack">#000</color>
     <color name="colorAccent">#03DAC5</color>
+    <color name="colorSecondary">#ec5757</color>
+    <color name="colorSecondaryVariant">#00796B</color>
+    <color name="colorPink">#ffe91e63</color>
+    <color name="colorGray">#F5F5F5</color>
+    <color name="first_color">#f6efed</color>
+    <color name="button_color">#e9645e</color>
+    <color name="text_color_pink">#e9645e</color>
+    <color name="text_color_bold">#3c3c3d</color>
+    <color name="card_background_color">#eab8ab</color>
+    <color name="text_bold">#3d3d3d</color>
+    <color name="background_color">#f9f9f9</color>
 </resources>

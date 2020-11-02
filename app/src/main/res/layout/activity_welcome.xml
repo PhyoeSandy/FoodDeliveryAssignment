@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.WelcomeActivity">
+
+    <ImageView
+        android:id="@+id/ivIntro"
+        android:layout_width="match_parent"
+        android:layout_height="450dp"
+        android:scaleType="fitCenter"
+        android:layout_margin="@dimen/margin_small"
+        android:src="@drawable/intro"/>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/welcome_card_height"
+        android:layout_below="@id/ivIntro"
+        app:cardBackgroundColor="@color/colorSecondary"
+        app:cardCornerRadius="@dimen/margin_medium_3"
+        app:cardElevation="@dimen/margin_card_medium">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tvWelcomeTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_xlarge"
+                android:layout_marginTop="@dimen/margin_xlarge"
+                android:text="@string/welcome_title"
+                style="@style/WhiteText.BigBold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvWelcomeDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_xlarge"
+                style="@style/WhiteText"
+                android:text="@string/welcome_description"
+                app:layout_constraintStart_toStartOf="@id/tvWelcomeTitle"
+                app:layout_constraintTop_toBottomOf="@id/tvWelcomeTitle" />
+
+            <TextView
+                android:id="@+id/btnStart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_medium_2"
+                android:background="@drawable/bg_rounded_white"
+                android:paddingStart="@dimen/getStarted_paddingW"
+                android:paddingEnd="@dimen/getStarted_paddingW"
+                android:paddingTop="@dimen/getStarted_paddingH"
+                android:paddingBottom="@dimen/getStarted_paddingH"
+                android:text="Get Started"
+                android:textColor="@android:color/black"
+                app:layout_constraintStart_toStartOf="@id/tvWelcomeDescription"
+                app:layout_constraintTop_toBottomOf="@id/tvWelcomeDescription" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+</RelativeLayout>

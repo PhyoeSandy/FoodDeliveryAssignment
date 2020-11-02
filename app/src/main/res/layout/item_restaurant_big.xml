@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/rlRestaurant"
+    android:layout_marginTop="@dimen/margin_medium"
+    android:layout_marginStart="@dimen/margin_medium_2"
+    android:layout_marginEnd="@dimen/margin_medium_2">
+
+    <com.padcmyanmar.padcx.fooddeliveryassignment.views.components.RoundedCornerImageView
+        android:id="@+id/ivRestaurant"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/intro"
+        app:cornerRadius="@dimen/margin_medium_2" />
+
+    <TextView
+        android:id="@+id/tvName"
+        style="@style/BlackText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ivRestaurant"
+        android:layout_marginTop="@dimen/margin_medium_2"
+        android:text="@string/item_name"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvRatings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvName"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:drawableLeft="@drawable/ic_baseline_star_24"
+        android:text="@string/ratings" />
+
+    <TextView
+        android:id="@+id/tvType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/tvRatings"
+        android:layout_marginStart="@dimen/margin_card_medium_2"
+        android:layout_toRightOf="@id/tvRatings"
+        android:text="@string/restaurant_name" />
+
+</RelativeLayout>

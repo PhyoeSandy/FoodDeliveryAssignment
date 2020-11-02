@@ -1,3 +1,83 @@
 <resources>
     <string name="app_name">FoodDeliveryAssignment</string>
+    <string name="welcome_title">Happy Meals</string>
+    <string name="welcome_description">Discover the best foods from \n over 1,000 restaurants.</string>
+    <string name="create_account">Create Account</string>
+    <string name="facebook_login">f Continue with Facebook</string>
+    <string name="fastDelivery_description">Fast Delivery to your home, office \n and wherever you are.</string>
+    <string name="login">Log in</string>
+    <string name="forgot">Forgot?</string>
+    <string name="sign_up">Don\'t have an account?   Sign up</string>
+    <string name="create_your_acc">Create your \n account</string>
+    <string name="login_acc">Log in to your account</string>
+    <string name="term_condition">By clicking Sign up you agree to the our \n Terms and Conditions</string>
+    <string name="already_account">Already an account? Log in</string>
+    <string name="thankyou">Thank you for \n your order</string>
+    <string name="order_section">You can track the delivery in \n the Orders section.</string>
+    <string name="order_track">Track my order</string>
+    <string name="order_smth">Order something else</string>
+    <string name="order_item">Classic Cheese Burger</string>
+    <string name="add_foods">Add more foods</string>
+    <string name="item_name">Really Cool Burgers</string>
+    <string name="restaurant_name">Burger - Western Food - $$</string>
+    <string name="ratings">4.9(124 ratings)</string>
+    <string name="restaurant_address">123 Rock Street, New York City</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="find_food">Find foods you love</string>
+    <string name="discover">Discover the best foods from over 1,000 restaruants</string>
+    <string name="fast_delivery">Fast Delivery</string>
+    <string name="to_your_home">Fast delivery to your home, office and wherever you are.</string>
+    <string name="live_tracking">Live Tracking</string>
+    <string name="realtime_tracking">Real time tracking of your food on the app after ordered</string>
+    <string name="continue_with_facebook">Continue with facebook</string>
+
+
+    <string name="log_in_to_you_account">Log in to you account</string>
+    <string name="email">email</string>
+    <string name="password">Password</string>
+    <string name="log_in">Log in</string>
+    <string name="don_t_have_an_account">Don\'t have an account?</string>
+    <string name="username">Username</string>
+    <string name="phone">Phone</string>
+    <string name="terms_and_condition">By clicking Sign up you agree to the our Terms and Conditions</string>
+    <string name="already_an_account">Already an account?</string>
+    <string name="happy_meals">Happy Meals</string>
+    <string name="get_started">Get Started</string>
+    <string name="cancel">Cancel</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="save">Save</string>
+    <string name="your_email">YOUR EMAIL</string>
+    <string name="city_state">CITY, STATE</string>
+    <string name="country">COUNTRY</string>
+    <string name="restaurants">Restaurants</string>
+    <string name="offer">Offers</string>
+    <string name="account">Account</string>
+    <string name="delivering_to">Delivering to</string>
+    <string name="search_hint">Search foods</string>
+    <string name="burgers">Burgers</string>
+    <string name="hollywood_starz_cafe">Hollywood Starz Cafe</string>
+    <string name="western_food">4.9(124 ratings) Cafe. Western Food $$</string>
+    <string name="mins">20 - 30 mins</string>
+    <string name="new_restaurants_s">New Restaurants</string>
+    <string name="show_all">Show all</string>
+    <string name="super_good_cafe">Super Good Cafe</string>
+    <string name="food">Cafe Western Food. $$</string>
+    <string name="popular_choices">Popular Choices</string>
+    <string name="really_cool_burgers">Really Cool Burgers</string>
+    <string name="rock_street">123 Rock Street, New York City</string>
+    <string name="_16">$16</string>
+    <string name="add_to_cart">Go To Cart</string>
+    <string name="check_out">Check Out</string>
+    <string name="sub_total">Sub Total</string>
+    <string name="delivery_cost">Delivery Cost</string>
+    <string name="free">free</string>
+    <string name="new_restaurants">New Restaurants</string>
+    <string name="your_name">YOUR NAME</string>
+
+    <string-array name="location">
+        <item>Current Location</item>
+        <item>Another Location</item>
+        <item>Custom Location</item>
+    </string-array>
 </resources>
