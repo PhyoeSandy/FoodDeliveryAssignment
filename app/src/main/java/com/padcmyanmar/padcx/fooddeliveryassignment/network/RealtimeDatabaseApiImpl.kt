@@ -75,7 +75,7 @@ object RealtimeDatabaseApiImpl : FirebaseApi {
         TODO("Not yet implemented")
     }
 
-    override fun addFoodItem(food: FoodVO) {
+    override fun addFoodItem(food: FoodVO, onSuccess: () -> Unit, onFailure: (String) -> Unit) {
         //mDatabase.child("ordered_food_list").child(id.toString()).child(name).setValue(OrderedFoodListVO(name,price,quantity))
     }
 
@@ -92,7 +92,15 @@ object RealtimeDatabaseApiImpl : FirebaseApi {
 
     override fun getFoodItems(
         documentId: String,
-        onSuccess: (foodList: List<FoodVO>, restaurantVO: RestaurantVO) -> Unit,
+        onSuccess: (foodList: List<FoodVO>) -> Unit,
+        onFailure: (String) -> Unit
+    ) {
+
+    }
+
+    override fun getRestaurantData(
+        documentId: String,
+        onSuccess: (restaurant: RestaurantVO) -> Unit,
         onFailure: (String) -> Unit
     ) {
 

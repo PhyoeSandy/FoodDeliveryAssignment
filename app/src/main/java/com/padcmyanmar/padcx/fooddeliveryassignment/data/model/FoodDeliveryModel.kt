@@ -38,12 +38,14 @@ interface FoodDeliveryModel {
     fun getPopularItemList(onSuccess: (foodList: List<FoodVO>) -> Unit, onFailure: (String) -> Unit)
 
     /*checkout Screen*/
-    fun addFoodItem(food: FoodVO)
+    fun addFoodItem(food: FoodVO, onSuccess: () -> Unit, onFailure: (String) -> Unit)
 
     fun removeFoodItem(id: String)
 
     fun getOrderList(onSuccess: (orderList: List<FoodVO>) -> Unit, onFailure: (String) -> Unit)
 
     /*details Screen*/
-    fun getFoodItems(documentId: String, onSuccess: (List<FoodVO>,RestaurantVO) -> Unit, onFaiure: (String) -> Unit)
+    fun getFoodItems(documentId: String, onSuccess: (List<FoodVO>) -> Unit, onFaiure: (String) -> Unit)
+
+    fun getRestaurantData(documentId: String, onSuccess: (restaurant: RestaurantVO) -> Unit, onFailure:(String) -> Unit)
 }

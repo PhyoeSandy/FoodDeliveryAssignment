@@ -20,13 +20,15 @@ interface FirebaseApi {
     fun getPopularChoices(onSuccess: (popularList: List<FoodVO>) -> Unit, onFailure:(String) -> Unit)
 
     /*checkout Screen*/
-    fun addFoodItem(food: FoodVO)
+    fun addFoodItem(food: FoodVO, onSuccess: () -> Unit, onFailure: (String) -> Unit)
 
     fun deleteFoodItem(id: String)
 
     fun getOrderList(onSuccess: (orderList: List<FoodVO>) -> Unit, onFailure: (String) -> Unit)
 
     /*details screen*/
-    fun getFoodItems( documentId: String, onSuccess: (foodList: List<FoodVO>, restaurantVO : RestaurantVO) -> Unit, onFailure: (String) -> Unit)
+    fun getFoodItems( documentId: String, onSuccess: (foodList: List<FoodVO>) -> Unit, onFailure: (String) -> Unit)
+
+    fun getRestaurantData(documentId: String, onSuccess: (restaurant: RestaurantVO) -> Unit, onFailure:(String) -> Unit)
 
 }

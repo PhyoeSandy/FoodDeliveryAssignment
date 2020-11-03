@@ -41,7 +41,7 @@ object CloudFirestoreApiImpl : FirebaseApi {
             return@continueWithTask imageRef.downloadUrl
         }.addOnCompleteListener {
             val imageUrl = it.result?.toString()
-            imageUrl?.let{ url ->
+            imageUrl?.let { url ->
                 onSuccess(url)
             }
         }
@@ -54,12 +54,12 @@ object CloudFirestoreApiImpl : FirebaseApi {
         db.collection("category")
             .addSnapshotListener { value, error ->
                 error?.let {
-                    onFailure(it.message?: NO_INTERNET)
+                    onFailure(it.message ?: NO_INTERNET)
                 } ?: kotlin.run {
-                    val categoryList : MutableList<CategoryVO> = arrayListOf()
+                    val categoryList: MutableList<CategoryVO> = arrayListOf()
                     val result = value?.documents ?: arrayListOf()
 
-                    for(document in result) {
+                    for (document in result) {
                         val data = document.data
                         var category = CategoryVO()
                         category.name = data?.get("name") as String
@@ -79,16 +79,20 @@ object CloudFirestoreApiImpl : FirebaseApi {
         db.collection("restaurant")
             .addSnapshotListener { value, error ->
                 error?.let {
-                    onFailure(it.message?: NO_INTERNET)
+                    onFailure(it.message ?: NO_INTERNET)
                 } ?: kotlin.run {
-                    val restaurantList : MutableList<RestaurantVO> = arrayListOf()
+                    val restaurantList: MutableList<RestaurantVO> = arrayListOf()
                     val result = value?.documents ?: arrayListOf()
 
-                    for(document in result) {
+                    for (document in result) {
                         val data = document.data
                         var restaurant = RestaurantVO()
                         restaurant.name = data?.get("name") as String
                         restaurant.image = data["image"] as String?
+                        restaurant.id = document.id
+                        restaurant.ratings = data["ratings"] as Double
+                        restaurant.type = data["type"] as String?
+                        restaurant.address = data["address"] as String?
 
                         restaurantList.add(restaurant)
                     }
@@ -101,11 +105,11 @@ object CloudFirestoreApiImpl : FirebaseApi {
         onSuccess: (popularList: List<FoodVO>) -> Unit,
         onFailure: (String) -> Unit
     ) {
-        db.collectionGroup("foodItems").whereEqualTo("popular","true")
+        db.collectionGroup("foodItems").whereEqualTo("popular", "true")
             .addSnapshotListener { value, error ->
                 error?.let {
                     onFailure(it.message ?: NO_INTERNET)
-                } ?: run{
+                } ?: run {
 
                     val popularList: MutableList<FoodVO> = arrayListOf()
 
@@ -124,12 +128,18 @@ object CloudFirestoreApiImpl : FirebaseApi {
             }
     }
 
-    override fun addFoodItem(food: FoodVO) {
+    override fun addFoodItem(food: FoodVO, onSuccess: () -> Unit, onFailure: (String) -> Unit) {
         db.collection("orders")
             .document(food?.name.toString())
             .set(food)
-            .addOnSuccessListener { Log.d("Success", "Successfully added foodItem") }
-            .addOnFailureListener { Log.d("Failure", "Failed to add foodItem") }
+            .addOnSuccessListener {
+                onSuccess()
+                Log.d("Success", "Successfully added foodItem")
+            }
+            .addOnFailureListener {
+                onFailure("Order fail")
+                Log.d("Failure", "Failed to add foodItem")
+            }
     }
 
     override fun deleteFoodItem(id: String) {
@@ -148,7 +158,7 @@ object CloudFirestoreApiImpl : FirebaseApi {
             .addSnapshotListener { value, error ->
                 error?.let {
                     onFailure(it.message ?: "Please check connection")
-                } ?: run{
+                } ?: run {
 
                     val orderList: MutableList<FoodVO> = arrayListOf()
 
@@ -169,45 +179,48 @@ object CloudFirestoreApiImpl : FirebaseApi {
 
     override fun getFoodItems(
         documentId: String,
-        onSuccess: (foodList: List<FoodVO>, restaurantVO: RestaurantVO) -> Unit,
+        onSuccess: (foodList: List<FoodVO>) -> Unit,
         onFailure: (String) -> Unit
     ) {
-        var restaurant: RestaurantVO  = RestaurantVO()
-        db.collection("restaurant").document(documentId)
+
+        db.collection("restaurant/${documentId}/foodItems")
             .addSnapshotListener { value, error ->
                 error?.let {
-                    onFailure(it.message ?: NO_INTERNET)
-                } ?: run{
-
-                    val data = value?.data
-                    val restaurantVO = RestaurantVO()
-                    restaurantVO.name = data?.get("name") as String
-                    restaurantVO.address = data["address"] as String?
-                    restaurantVO.image = data["image"] as String?
-                    restaurantVO.ratings = data["ratings"] as Double?
-
-                    restaurant = restaurantVO
-                }
-            }
-
-        db.collection("restaurants/${documentId}/foodItems")
-            .addSnapshotListener { value, error ->
-                error?.let {
-                    onFailure(it.message ?: NO_INTERNET)
-                } ?: run{
-
-                    val foodList: MutableList<FoodVO> = arrayListOf()
-
+                    onFailure(it.message ?: "Please check internet connection")
+                } ?: run {
+                    val burgerVOList: MutableList<FoodVO> = arrayListOf()
                     val result = value?.documents ?: arrayListOf()
-
                     for (document in result) {
                         val hashmap = document.data
                         hashmap?.put("id", document.id.toString())
                         val Data = Gson().toJson(hashmap)
                         val docsData = Gson().fromJson<FoodVO>(Data, FoodVO::class.java)
-                        foodList.add(docsData)
+                        burgerVOList.add(docsData)
                     }
-                    onSuccess(foodList ,restaurant)
+                    onSuccess(burgerVOList)
+                }
+            }
+    }
+
+    override fun getRestaurantData(
+        documentId: String,
+        onSuccess: (restaurant: RestaurantVO) -> Unit,
+        onFailure: (String) -> Unit
+    ) {
+        db.collection("restaurants").document(documentId)
+            .addSnapshotListener { value, error ->
+                error?.let {
+                    onFailure(it.message ?: "Please check connection")
+                } ?: run{
+
+                    val data = value?.data
+                    val restaurant = RestaurantVO()
+                    restaurant.image = data?.get("image") as String
+                    restaurant.ratings = data["ratings"] as Double
+                    restaurant.type = data["type"] as String?
+                    restaurant.address = data["address"] as String?
+
+                    onSuccess(restaurant)
                 }
             }
     }

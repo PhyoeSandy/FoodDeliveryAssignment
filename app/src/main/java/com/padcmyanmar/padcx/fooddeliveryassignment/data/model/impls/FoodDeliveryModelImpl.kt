@@ -16,8 +16,8 @@ import com.padcmyanmar.padcx.fooddeliveryassignment.network.remoteConfig.Firebas
  */
 object FoodDeliveryModelImpl : FoodDeliveryModel {
 
-    override var mFirebaseApi: FirebaseApi = RealtimeDatabaseApiImpl
-    //override var mFirebaseApi: FirebaseApi = CloudFirestoreApiImpl
+    //override var mFirebaseApi: FirebaseApi = RealtimeDatabaseApiImpl
+    override var mFirebaseApi: FirebaseApi = CloudFirestoreApiImpl
     override var mFirebaseRemoteConfig: FirebaseRemoteConfigManager = FirebaseRemoteConfigManager
 
     override fun updateProfile(bitmap: Bitmap) {
@@ -59,24 +59,35 @@ object FoodDeliveryModelImpl : FoodDeliveryModel {
         mFirebaseApi.getPopularChoices(onSuccess, onFailure)
     }
 
-    override fun addFoodItem(food: FoodVO) {
-        mFirebaseApi.addFoodItem(food)
+    override fun addFoodItem(food: FoodVO, onSuccess: () -> Unit, onFailure: (String) -> Unit) {
+        mFirebaseApi.addFoodItem(food, onSuccess, onFailure)
     }
 
     override fun removeFoodItem(id: String) {
         mFirebaseApi.deleteFoodItem(id)
     }
 
-    override fun getOrderList(onSuccess: (orderList: List<FoodVO>) -> Unit, onFailure: (String) -> Unit) {
+    override fun getOrderList(
+        onSuccess: (orderList: List<FoodVO>) -> Unit,
+        onFailure: (String) -> Unit
+    ) {
         mFirebaseApi.getOrderList(onSuccess, onFailure)
     }
 
     override fun getFoodItems(
         documentId: String,
-        onSuccess: (List<FoodVO>, RestaurantVO) -> Unit,
+        onSuccess: (List<FoodVO>) -> Unit,
         onFaiure: (String) -> Unit
     ) {
-        mFirebaseApi.getFoodItems(documentId,onSuccess,onFaiure)
+        mFirebaseApi.getFoodItems(documentId, onSuccess, onFaiure)
+    }
+
+    override fun getRestaurantData(
+        documentId: String,
+        onSuccess: (restaurant: RestaurantVO) -> Unit,
+        onFailure: (String) -> Unit
+    ) {
+        mFirebaseApi.getRestaurantData(documentId, onSuccess, onFailure)
     }
 
 

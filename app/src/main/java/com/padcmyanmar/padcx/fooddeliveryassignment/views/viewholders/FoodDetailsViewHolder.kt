@@ -7,7 +7,6 @@ import com.padcmyanmar.padcx.fooddeliveryassignment.data.vos.FoodVO
 import com.padcmyanmar.padcx.fooddeliveryassignment.delegates.FoodItemDelegate
 import com.padcmyanmar.padcx.fooddeliveryassignment.utils.load
 import com.padcmyanmar.padcx.shared.views.viewholders.BaseViewHolder
-import kotlinx.android.synthetic.main.activity_restaurant_details.view.*
 import kotlinx.android.synthetic.main.item_foods_details.view.*
 
 /**
@@ -18,17 +17,19 @@ class FoodDetailsViewHolder(itemView: View, private val mDelegate: FoodItemDeleg
     BaseViewHolder<FoodVO>(itemView) {
 
     override fun bindData(data: FoodVO) {
+        mData = data
 
         data?.let {
-            itemView.tvRestaurantTitle.text = data?.name
+            itemView.tv_restaurant_name.text = data?.name
             //itemView.tv_restaurant_description.text = data?.
             //itemView.tv_restaurant_rating.text =data?.
             itemView.tv_restaurant_price.text = data?.price.toString() + " $"
-            data?.let {
-                itemView.img_restaurant.load(it.image.toUri())
-            }
-            itemView.btnAddTocart.setOnClickListener {
-                mDelegate.onTapFoodItem(data)
+            itemView.img_restaurant.load(it.image.toUri())
+
+            itemView.setOnClickListener {
+                mData?.let {
+                    mDelegate.onTapFoodItem(it)
+                }
             }
         }
     }

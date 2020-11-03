@@ -13,31 +13,35 @@ import com.padcmyanmar.padcx.shared.mvp.presenters.AbstractBasePresenter
  */
 class RestaurantDetailPresenterImpl : AbstractBasePresenter<RestaurantDetailView>(),
     RestaurantDetailPresenter {
+
     private val mFoodDeliveryModel = FoodDeliveryModelImpl
 
     override fun onUiReady(lifecycleOwner: LifecycleOwner, documentId: String) {
-        mFoodDeliveryModel.getFoodItems(documentId, { foodList, restaurant ->
+        mFoodDeliveryModel.getFoodItems(documentId, { foodList ->
             mView?.showPopularChoicesFoodItem(
                 foodList.filter { it.popular }
             )
 
             mView?.showFoodItemList(foodList)
 
-            mView?.showRestaurantData(restaurant)
         }, {
             mView?.showErrorMessage(it)
         })
+
+        /*mFoodDeliveryModel.getRestaurantList({
+            mView?.showRestaurantData(restaurant)
+
+        })*/
     }
 
     override fun onUiReady(lifecycleOwner: LifecycleOwner) {
-        TODO("Not yet implemented")
-    }
-
-    override fun onTapGoToCart() {
-        TODO("Not yet implemented")
     }
 
     override fun onTapFoodItem(foodItem: FoodVO) {
-        TODO("Not yet implemented")
+        mFoodDeliveryModel.addFoodItem(foodItem, {
+            mView?.showAddToCart()
+        }, {
+            mView?.showErrorMessage(it)
+        })
     }
 }

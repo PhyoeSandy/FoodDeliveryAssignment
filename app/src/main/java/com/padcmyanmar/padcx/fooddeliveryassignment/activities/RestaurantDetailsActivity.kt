@@ -3,12 +3,11 @@ package com.padcmyanmar.padcx.fooddeliveryassignment.activities
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.padcmyanmar.padcx.fooddeliveryassignment.R
-import com.padcmyanmar.padcx.fooddeliveryassignment.adapters.CategoryAdapter
 import com.padcmyanmar.padcx.fooddeliveryassignment.adapters.FoodItemAdapter
 import com.padcmyanmar.padcx.fooddeliveryassignment.adapters.PopularChoiceAdapter
-import com.padcmyanmar.padcx.fooddeliveryassignment.adapters.RestaurantAdapter
 import com.padcmyanmar.padcx.fooddeliveryassignment.data.vos.FoodVO
 import com.padcmyanmar.padcx.fooddeliveryassignment.data.vos.RestaurantVO
 import com.padcmyanmar.padcx.fooddeliveryassignment.mvp.presenters.RestaurantDetailPresenter
@@ -96,5 +95,9 @@ class RestaurantDetailsActivity : BaseActivity(), RestaurantDetailView {
 
     override fun showViewCartCount(cartCount: Long) {
         TODO("Not yet implemented")
+    }
+
+    override fun showAddToCart() {
+        btnAddTocart.visibility = View.VISIBLE
     }
 }

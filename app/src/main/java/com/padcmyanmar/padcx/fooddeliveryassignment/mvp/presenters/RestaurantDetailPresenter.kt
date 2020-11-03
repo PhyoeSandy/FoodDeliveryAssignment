@@ -7,5 +7,4 @@ import com.padcmyanmar.padcx.shared.mvp.presenters.BasePresenter
 
 interface RestaurantDetailPresenter : BasePresenter<RestaurantDetailView>, FoodItemDelegate {
     fun onUiReady(lifecycleOwner: LifecycleOwner, documentId: String)
-    fun onTapGoToCart()
 }
