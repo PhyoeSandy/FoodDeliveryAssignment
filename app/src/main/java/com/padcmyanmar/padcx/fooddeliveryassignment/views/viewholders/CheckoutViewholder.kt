@@ -23,10 +23,10 @@ class CheckoutViewholder(itemView: View, private val mDelegate: CheckoutViewItem
             itemView.tvOrderItem.text = data?.name
             itemView.tvCount.text = " x ${data?.quantity}"
             itemView.tvPrice.text = "Total ${data?.totalAmount.toString()} "
-
+/*
             data?.image?.let {
                 itemView.ivRestaurant.load(it.toUri())
-            }
+            }*/
         }
     }
 }

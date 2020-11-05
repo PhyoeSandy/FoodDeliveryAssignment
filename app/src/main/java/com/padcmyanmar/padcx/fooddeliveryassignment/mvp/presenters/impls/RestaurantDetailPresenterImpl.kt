@@ -23,15 +23,15 @@ class RestaurantDetailPresenterImpl : AbstractBasePresenter<RestaurantDetailView
             )
 
             mView?.showFoodItemList(foodList)
-
         }, {
             mView?.showErrorMessage(it)
         })
 
-        /*mFoodDeliveryModel.getRestaurantList({
-            mView?.showRestaurantData(restaurant)
-
-        })*/
+        mFoodDeliveryModel.getRestaurantData(documentId, {
+            mView?.showRestaurantData(it)
+        }, {
+            mView?.showErrorMessage(it)
+        })
     }
 
     override fun onUiReady(lifecycleOwner: LifecycleOwner) {

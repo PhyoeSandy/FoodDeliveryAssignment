@@ -207,7 +207,7 @@ object CloudFirestoreApiImpl : FirebaseApi {
         onSuccess: (restaurant: RestaurantVO) -> Unit,
         onFailure: (String) -> Unit
     ) {
-        db.collection("restaurants").document(documentId)
+        db.collection("restaurant").document(documentId)
             .addSnapshotListener { value, error ->
                 error?.let {
                     onFailure(it.message ?: "Please check connection")

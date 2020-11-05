@@ -47,19 +47,20 @@ class CheckoutActivity : BaseActivity(), CheckoutView {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_checkout)
 
-        setUpPresenter()
         initView()
+        setUpPresenter()
         setUpRecyclerView()
+        mPresenter.onUiReady(this)
         setUpActionListener()
     }
 
     private fun initView() {
-        tvName.text = intent.getStringExtra(PARM_RESTAURANT_NAME).toString()
+       /* tvName.text = intent.getStringExtra(PARM_RESTAURANT_NAME).toString()
         tvType.text = intent.getStringExtra(PARM_RESTAURANT_ADDRESS).toString()
         tvRatings.text = intent.getStringExtra(PARM_RESTAURANT_RATING).toString()
         intent.getStringExtra(PARM_RESTAURANT_IMAGE)?.let {
             ivRestaurant.load(it.toUri())
-        }
+        }*/
     }
 
     private fun setUpActionListener() {
@@ -85,7 +86,7 @@ class CheckoutActivity : BaseActivity(), CheckoutView {
         view.btnOrder.setOnClickListener {
             Toast.makeText(this, "Order Track Clicked", Toast.LENGTH_SHORT).show()
             dialog?.dismiss()
-            //mPresenter.removeAllCartItem(orderList = mOrderList)
+            mPresenter.onTapCheckout(orderList = mOrderList)
             this.onBackPressed()
 
         }
@@ -97,20 +98,19 @@ class CheckoutActivity : BaseActivity(), CheckoutView {
     }
 
     private fun setUpRecyclerView() {
-        rvOrders.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-
         mAdapter = CheckOutAdapter(mPresenter)
-        rvOrders.adapter = mAdapter
-
+        rvOrders.apply {
+            layoutManager =  LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+            adapter = mAdapter
+        }
     }
 
     private fun setUpPresenter() {
         mPresenter = getPresenter<CheckoutPresenterImpl, CheckoutView>()
-        mPresenter.onUiReady(this)
-
     }
 
     override fun showOrderList(orderList: List<FoodVO>) {
-
+        mOrderList = orderList
+        mAdapter.setNewData(orderList.toMutableList())
     }
 }

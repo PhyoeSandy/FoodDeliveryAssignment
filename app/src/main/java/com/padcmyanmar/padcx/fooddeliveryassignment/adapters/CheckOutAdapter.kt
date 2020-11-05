@@ -19,7 +19,7 @@ class CheckOutAdapter(private val mDelegate: CheckoutViewItemActionDelegate) :
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CheckoutViewholder {
 
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.activity_checkout, parent, false)
+            .inflate(R.layout.item_order, parent, false)
         return CheckoutViewholder(view, mDelegate)
 
     }

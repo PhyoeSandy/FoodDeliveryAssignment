@@ -12,15 +12,19 @@ import com.padcmyanmar.padcx.shared.mvp.presenters.AbstractBasePresenter
  * on 11/2/2020.
  */
 class CheckoutPresenterImpl : CheckoutPresenter, AbstractBasePresenter<CheckoutView>() {
-    private val foodDeliveryModel = FoodDeliveryModelImpl
+    private val mFoodDeliveryModel = FoodDeliveryModelImpl
 
     override fun onTapCheckout(orderList: List<FoodVO>) {
         for(order in orderList) {
-            foodDeliveryModel.removeFoodItem(order.name.toString())
+            mFoodDeliveryModel.removeFoodItem(order.name.toString())
         }
     }
 
     override fun onUiReady(lifecycleOwner: LifecycleOwner) {
-        TODO("Not yet implemented")
+        mFoodDeliveryModel.getOrderList({
+            mView?.showOrderList(it)
+        }, {
+            mView?.showErrorMessage(it)
+        })
     }
 }
