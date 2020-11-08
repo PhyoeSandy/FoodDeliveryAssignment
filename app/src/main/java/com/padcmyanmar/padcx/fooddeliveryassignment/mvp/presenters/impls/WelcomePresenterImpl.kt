@@ -10,9 +10,7 @@ import com.padcmyanmar.padcx.shared.mvp.presenters.AbstractBasePresenter
  * on 10/31/2020.
  */
 class WelcomePresenterImpl : WelcomePresenter, AbstractBasePresenter<WelcomeView>() {
-    override fun onUiReady(lifecycleOwner: LifecycleOwner) {
-
-    }
+    override fun onUiReady(lifecycleOwner: LifecycleOwner) {}
 
     override fun onTapGettingStart() {
         mView?.navigateToIntroScreen()

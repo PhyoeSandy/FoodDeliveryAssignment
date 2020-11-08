@@ -16,10 +16,9 @@ class FoodItemAdapter(private val mDelegate: FoodItemDelegate) :
     BaseRecyclerAdapter<FoodDetailsViewHolder, FoodVO>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FoodDetailsViewHolder {
-
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_foods_details, parent, false)
         return FoodDetailsViewHolder(view, mDelegate)
-
     }
+
 }

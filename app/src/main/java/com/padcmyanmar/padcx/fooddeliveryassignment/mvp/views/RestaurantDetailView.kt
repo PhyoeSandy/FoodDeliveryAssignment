@@ -8,6 +8,5 @@ interface RestaurantDetailView : BaseView {
     fun showRestaurantData(restaurantVO: RestaurantVO)
     fun showPopularChoicesFoodItem(popularFoodList: List<FoodVO>)
     fun showFoodItemList(foodList: List<FoodVO>)
-    fun showViewCartCount(cartCount : Long)
-    fun showAddToCart()
+    fun showAddToCartButton(cartCount: Long)
 }

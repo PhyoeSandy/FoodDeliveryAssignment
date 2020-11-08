@@ -17,6 +17,7 @@ import com.padcmyanmar.padcx.fooddeliveryassignment.utils.load
 import com.padcmyanmar.padcx.shared.activities.BaseActivity
 import kotlinx.android.synthetic.main.activity_checkout.*
 import kotlinx.android.synthetic.main.bottomsheet_checkout.view.*
+import kotlinx.android.synthetic.main.item_restaurant_small.*
 
 class CheckoutActivity : BaseActivity(), CheckoutView {
 
@@ -47,20 +48,20 @@ class CheckoutActivity : BaseActivity(), CheckoutView {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_checkout)
 
-        initView()
+        getRestaurantFromIntent()
         setUpPresenter()
         setUpRecyclerView()
         mPresenter.onUiReady(this)
         setUpActionListener()
     }
 
-    private fun initView() {
-       /* tvName.text = intent.getStringExtra(PARM_RESTAURANT_NAME).toString()
+    private fun getRestaurantFromIntent() {
+        tvName.text = intent.getStringExtra(PARM_RESTAURANT_NAME).toString()
         tvType.text = intent.getStringExtra(PARM_RESTAURANT_ADDRESS).toString()
         tvRatings.text = intent.getStringExtra(PARM_RESTAURANT_RATING).toString()
         intent.getStringExtra(PARM_RESTAURANT_IMAGE)?.let {
             ivRestaurant.load(it.toUri())
-        }*/
+        }
     }
 
     private fun setUpActionListener() {
@@ -98,7 +99,7 @@ class CheckoutActivity : BaseActivity(), CheckoutView {
     }
 
     private fun setUpRecyclerView() {
-        mAdapter = CheckOutAdapter(mPresenter)
+        mAdapter = CheckOutAdapter()
         rvOrders.apply {
             layoutManager =  LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
             adapter = mAdapter
@@ -112,5 +113,9 @@ class CheckoutActivity : BaseActivity(), CheckoutView {
     override fun showOrderList(orderList: List<FoodVO>) {
         mOrderList = orderList
         mAdapter.setNewData(orderList.toMutableList())
+    }
+
+    override fun showTotalPrice(total: Double) {
+        tvSubTotalCost.text = total.toString()
     }
 }

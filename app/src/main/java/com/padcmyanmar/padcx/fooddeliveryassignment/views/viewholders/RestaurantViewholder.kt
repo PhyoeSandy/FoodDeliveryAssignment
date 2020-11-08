@@ -14,6 +14,7 @@ import kotlinx.android.synthetic.main.item_restaurant_small.view.*
  */
 class RestaurantViewholder(private val mDelegate: RestaurantItemDelegate, itemView: View) :
     BaseViewHolder<RestaurantVO>(itemView) {
+
     override fun bindData(data: RestaurantVO) {
         mData = data
 
@@ -27,6 +28,6 @@ class RestaurantViewholder(private val mDelegate: RestaurantItemDelegate, itemVi
                 mDelegate.onTapRestaurantItem(it)
             }
         }
-
     }
+
 }

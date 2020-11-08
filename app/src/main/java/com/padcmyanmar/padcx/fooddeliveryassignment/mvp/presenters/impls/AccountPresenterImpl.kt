@@ -24,7 +24,10 @@ class AccountPresenterImpl : AccountPresenter, AbstractBasePresenter<AccountView
 
     override fun onPhotoTaken(bitmap: Bitmap) {
         mAuthenticationModel.uploadPhoto(bitmap, {
-            mAuthenticationModel.updateProfile(it, {}, {
+            mAuthenticationModel.updateProfile(it, {
+                mView?.showSuccessMessage("Profile successfully updated.")
+                mView?.showProfileImage(it)
+            }, {
                 mView?.showErrorMessage(it)
             })
         }, {

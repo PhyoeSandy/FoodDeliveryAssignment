@@ -2,14 +2,16 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="@dimen/margin_medium"
+    android:paddingTop="@dimen/margin_small"
+    android:paddingBottom="@dimen/margin_small"
     android:background="@android:color/darker_gray">
 
     <TextView
         android:id="@+id/tvOrderItem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/text_heading_1x"
+        android:layout_marginStart="@dimen/margin_medium"
+        android:textSize="@dimen/text_regular_3x"
         android:text="@string/order_item"/>
 
     <TextView
@@ -17,7 +19,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toEndOf="@id/tvOrderItem"
-        android:textSize="@dimen/text_heading_1x"
+        android:textSize="@dimen/text_regular_3x"
         android:text=" x 1"/>
 
     <TextView
@@ -25,7 +27,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
+        android:layout_marginEnd="@dimen/margin_card_medium_2"
         android:text="$16"
+        android:layout_alignBaseline="@id/tvOrderItem"
         android:textSize="@dimen/text_heading_1x"
         android:textStyle="bold"/>
 

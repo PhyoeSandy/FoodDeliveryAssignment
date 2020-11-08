@@ -34,13 +34,19 @@ class RestaurantDetailPresenterImpl : AbstractBasePresenter<RestaurantDetailView
         })
     }
 
-    override fun onUiReady(lifecycleOwner: LifecycleOwner) {
-    }
+    override fun onUiReady(lifecycleOwner: LifecycleOwner) {}
 
-    override fun onTapFoodItem(foodItem: FoodVO) {
-        mFoodDeliveryModel.addFoodItem(foodItem, {
-            mView?.showAddToCart()
-        }, {
+    override fun onTapFoodItem(item: FoodVO) {
+        item.totalAmount = item.quantity * item.price
+        mFoodDeliveryModel.addFoodItem(item,{
+
+            mFoodDeliveryModel.getOrderList({
+                mView?.showAddToCartButton(it.size.toLong())
+            },{
+                mView?.showErrorMessage(it)
+            })
+
+        },{
             mView?.showErrorMessage(it)
         })
     }

@@ -5,7 +5,6 @@ import com.padcmyanmar.padcx.fooddeliveryassignment.data.model.impls.Authenticat
 import com.padcmyanmar.padcx.fooddeliveryassignment.data.model.impls.FoodDeliveryModelImpl
 import com.padcmyanmar.padcx.fooddeliveryassignment.mvp.presenters.LoginPresenter
 import com.padcmyanmar.padcx.fooddeliveryassignment.mvp.views.LoginView
-import com.padcmyanmar.padcx.fooddeliveryassignment.network.remoteConfig.FirebaseRemoteConfigManager
 import com.padcmyanmar.padcx.shared.mvp.presenters.AbstractBasePresenter
 
 /**

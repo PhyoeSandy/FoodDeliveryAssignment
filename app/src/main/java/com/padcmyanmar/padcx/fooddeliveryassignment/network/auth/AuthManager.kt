@@ -21,5 +21,4 @@ interface AuthManager {
 
     fun updateProfile(imageUrl: String, onSuccess: () -> Unit, onFailure: (String) -> Unit)
 
-
 }

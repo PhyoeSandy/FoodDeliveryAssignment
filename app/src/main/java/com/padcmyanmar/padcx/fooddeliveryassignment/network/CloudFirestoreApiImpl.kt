@@ -105,7 +105,10 @@ object CloudFirestoreApiImpl : FirebaseApi {
         onSuccess: (popularList: List<FoodVO>) -> Unit,
         onFailure: (String) -> Unit
     ) {
+/*
         db.collectionGroup("foodItems").whereEqualTo("popular", "true")
+*/
+        db.collectionGroup("foodItems")
             .addSnapshotListener { value, error ->
                 error?.let {
                     onFailure(it.message ?: NO_INTERNET)
@@ -216,6 +219,7 @@ object CloudFirestoreApiImpl : FirebaseApi {
                     val data = value?.data
                     val restaurant = RestaurantVO()
                     restaurant.image = data?.get("image") as String
+                    restaurant.name = data["name"] as String?
                     restaurant.ratings = data["ratings"] as Double
                     restaurant.type = data["type"] as String?
                     restaurant.address = data["address"] as String?
@@ -224,4 +228,5 @@ object CloudFirestoreApiImpl : FirebaseApi {
                 }
             }
     }
+
 }

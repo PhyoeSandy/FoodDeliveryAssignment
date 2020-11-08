@@ -72,7 +72,6 @@ object RealtimeDatabaseApiImpl : FirebaseApi {
         onSuccess: (popularList: List<FoodVO>) -> Unit,
         onFailure: (String) -> Unit
     ) {
-        TODO("Not yet implemented")
     }
 
     override fun addFoodItem(food: FoodVO, onSuccess: () -> Unit, onFailure: (String) -> Unit) {

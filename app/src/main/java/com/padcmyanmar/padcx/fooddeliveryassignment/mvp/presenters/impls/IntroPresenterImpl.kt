@@ -14,8 +14,6 @@ class IntroPresenterImpl : IntroPresenter, AbstractBasePresenter<IntroView>() {
         mView?.navigateToLoginScreen()
     }
 
-    override fun onUiReady(lifecycleOwner: LifecycleOwner) {
-
-    }
+    override fun onUiReady(lifecycleOwner: LifecycleOwner) {}
 
 }

@@ -69,7 +69,7 @@
          android:layout_width="match_parent"
          android:layout_height="match_parent"
          android:background="@drawable/bg_rounded_white"
-         app:behavior_overlapTop="50dp"
+         app:behavior_overlapTop="@dimen/getStarted_paddingH"
          app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
          <RelativeLayout

@@ -18,4 +18,5 @@ class PopularChoiceViewholder(itemView: View) : BaseViewHolder<FoodVO>(itemView)
         itemView.ivRestaurant.load(data.image.toUri())
         itemView.tvName.text = data.name
     }
+
 }

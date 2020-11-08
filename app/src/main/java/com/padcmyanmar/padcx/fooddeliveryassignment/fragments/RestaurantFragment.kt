@@ -26,8 +26,6 @@ class RestaurantFragment : BaseFragment(), HomeView {
     private var param2: String? = null
 
     private lateinit var mPresenter: HomePresenter
-    /*private lateinit var mSmallRestaurantAdapter: SmallRestaurantAdapter
-    private lateinit var mLargeRestaurantAdapter: LargeRestaurantAdapter*/
 
     private lateinit var mRestaurantAdapter: RestaurantAdapter
     private lateinit var mCategoryAdapter: CategoryAdapter
@@ -64,7 +62,6 @@ class RestaurantFragment : BaseFragment(), HomeView {
 
         setupPresenter()
         setupRecyclerView()
-
         mPresenter.onUiReady(this)
     }
 

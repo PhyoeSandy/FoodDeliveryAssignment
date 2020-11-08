@@ -11,6 +11,7 @@ import android.text.Editable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.core.net.toUri
 import com.padcmyanmar.padcx.fooddeliveryassignment.R
@@ -119,11 +120,13 @@ class AccountFragment : BaseFragment(), AccountView {
                         )
                         val bitmap = ImageDecoder.decodeBitmap(source)
                         mBitmap = bitmap
+                        ivProfile.load(filePath)
                     } else {
                         val bitmap = MediaStore.Images.Media.getBitmap(
                             context?.contentResolver, filePath
                         )
                         mBitmap = bitmap
+                        ivProfile.load(filePath)
                     }
                 }
             } catch (e: IOException) {
@@ -134,14 +137,24 @@ class AccountFragment : BaseFragment(), AccountView {
     }
 
     override fun closeProfile() {
-        //activity?.onBackPressed()
+        activity?.onBackPressed()
     }
 
     override fun showProfileData(user: UserVO) {
-        user.image?.let { ivProfile.load(it.toUri()) }
-        //etName.text = Editable.Factory.getInstance().newEditable(user.name)
         etEmail.text = Editable.Factory.getInstance().newEditable(user.email)
         etPhone.text = Editable.Factory.getInstance().newEditable(user.phone)
         etPassword.text = Editable.Factory.getInstance().newEditable(user.password)
+        user.image?.let {
+            ivProfile.load(it.toUri())
+        }
     }
+
+    override fun showSuccessMessage(message: String) {
+        Toast.makeText(activity?.applicationContext, message, Toast.LENGTH_SHORT).show();
+    }
+
+    override fun showProfileImage(url: String) {
+        ivProfile.load(url.toUri())
+    }
+
 }

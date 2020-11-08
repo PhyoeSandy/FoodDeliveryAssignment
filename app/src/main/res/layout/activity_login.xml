@@ -29,7 +29,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignStart="@id/tvLoginAcc"
-        android:background="@drawable/bg_rounded_white"
         android:layout_below="@id/tvLoginAcc"
         android:hint="Email"
         android:inputType="textEmailAddress"/>
@@ -62,8 +61,8 @@
         android:background="@drawable/bg_rounded_coral"
         android:paddingStart="@dimen/login_padding"
         android:paddingEnd="@dimen/login_padding"
-        android:paddingTop="@dimen/margin_card_medium_2"
-        android:paddingBottom="@dimen/margin_card_medium_2"
+        android:paddingTop="@dimen/getStarted_paddingH"
+        android:paddingBottom="@dimen/getStarted_paddingH"
         android:layout_below="@id/etPassword"
         android:layout_centerHorizontal="true"/>
 

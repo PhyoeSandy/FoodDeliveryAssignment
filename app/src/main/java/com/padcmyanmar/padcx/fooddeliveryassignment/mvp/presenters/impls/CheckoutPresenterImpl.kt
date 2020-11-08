@@ -23,8 +23,18 @@ class CheckoutPresenterImpl : CheckoutPresenter, AbstractBasePresenter<CheckoutV
     override fun onUiReady(lifecycleOwner: LifecycleOwner) {
         mFoodDeliveryModel.getOrderList({
             mView?.showOrderList(it)
+
+            mView?.showTotalPrice(calculateTotal(it))
         }, {
             mView?.showErrorMessage(it)
         })
+    }
+
+    private fun calculateTotal(orderList: List<FoodVO>) : Double {
+        var total = 0.0
+        for(o in orderList) {
+            total += o.quantity * o.price
+        }
+        return total
     }
 }

@@ -38,6 +38,6 @@
     <dimen name="getStarted_paddingW">35dp</dimen>
     <dimen name="getStarted_paddingH">10dp</dimen>
     <dimen name="login_padding">150dp</dimen>
-    <dimen name="success_height">300dp</dimen>
+    <dimen name="success_height">200dp</dimen>
 
 </resources>

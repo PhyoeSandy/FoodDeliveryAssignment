@@ -9,4 +9,5 @@ import com.padcmyanmar.padcx.shared.mvp.views.BaseView
  */
 interface CheckoutView : BaseView {
     fun showOrderList(orderList: List<FoodVO>)
+    fun showTotalPrice(total: Double)
 }

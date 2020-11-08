@@ -14,6 +14,6 @@ data class RestaurantVO(
     var image: String? = "",
     var ratings: Double? = 0.0,
     var rating_count: Int = 0,
-    var type: String? = "",
-    var foodItems: ArrayList<FoodVO> = arrayListOf()
+    var type: String? = ""
+    //var foodItems: ArrayList<FoodVO> = arrayListOf()
 )

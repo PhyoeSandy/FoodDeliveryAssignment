@@ -12,6 +12,6 @@ data class FoodVO(
     var price: Double = 0.0,
     var image: String = "",
     var popular: Boolean = false,
-    var quantity: Int = 0,
+    var quantity: Int = 1,
     var totalAmount: Double = 0.0
 )

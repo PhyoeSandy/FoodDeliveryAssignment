@@ -11,4 +11,6 @@ interface AccountView : BaseView {
     fun openGallery()
     fun closeProfile()
     fun showProfileData(user: UserVO)
+    fun showProfileImage(url: String)
+    fun showSuccessMessage(message: String)
 }

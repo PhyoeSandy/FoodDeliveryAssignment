@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import androidx.core.net.toUri
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.padcmyanmar.padcx.fooddeliveryassignment.R
 import com.padcmyanmar.padcx.fooddeliveryassignment.adapters.FoodItemAdapter
@@ -13,6 +14,7 @@ import com.padcmyanmar.padcx.fooddeliveryassignment.data.vos.RestaurantVO
 import com.padcmyanmar.padcx.fooddeliveryassignment.mvp.presenters.RestaurantDetailPresenter
 import com.padcmyanmar.padcx.fooddeliveryassignment.mvp.presenters.impls.RestaurantDetailPresenterImpl
 import com.padcmyanmar.padcx.fooddeliveryassignment.mvp.views.RestaurantDetailView
+import com.padcmyanmar.padcx.fooddeliveryassignment.utils.load
 import com.padcmyanmar.padcx.shared.activities.BaseActivity
 import kotlinx.android.synthetic.main.activity_restaurant_details.*
 
@@ -83,6 +85,9 @@ class RestaurantDetailsActivity : BaseActivity(), RestaurantDetailView {
         tvRestaurantTitle.text = mRestaurantData.name
         tvType.text = mRestaurantData.type
         tvAddress.text = mRestaurantData.address
+        restaurantVO.image?.let {
+            ivItem.load(it.toUri())
+        }
     }
 
     override fun showPopularChoicesFoodItem(popularFoodList: List<FoodVO>) {
@@ -93,11 +98,8 @@ class RestaurantDetailsActivity : BaseActivity(), RestaurantDetailView {
        mFoodItemAdapter.setNewData(foodList.toMutableList())
     }
 
-    override fun showViewCartCount(cartCount: Long) {
-        TODO("Not yet implemented")
-    }
-
-    override fun showAddToCart() {
-        btnAddTocart.visibility = View.VISIBLE
+    override fun showAddToCartButton(cartCount: Long) {
+        if(cartCount > 0) btnAddTocart.visibility = View.VISIBLE
+        else btnAddTocart.visibility = View.GONE
     }
 }

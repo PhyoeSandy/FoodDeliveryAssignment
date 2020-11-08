@@ -30,6 +30,5 @@ class RegisterPresenterImpl : RegisterPresenter, AbstractBasePresenter<RegisterV
         })
     }
 
-    override fun onUiReady(lifecycleOwner: LifecycleOwner) {
-    }
+    override fun onUiReady(lifecycleOwner: LifecycleOwner) {}
 }

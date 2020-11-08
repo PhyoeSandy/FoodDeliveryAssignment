@@ -39,7 +39,6 @@ object FirebaseRemoteConfigManager
             }
     }
 
-
     fun getHomeScreenViewTypeStatus() : Int{
         return remoteConfig.getValue("homeScreenViewType").asString().toInt()
     }

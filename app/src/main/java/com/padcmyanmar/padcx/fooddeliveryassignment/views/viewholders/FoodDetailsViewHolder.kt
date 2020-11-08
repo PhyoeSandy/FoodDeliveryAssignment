@@ -21,8 +21,6 @@ class FoodDetailsViewHolder(itemView: View, private val mDelegate: FoodItemDeleg
 
         data?.let {
             itemView.tv_restaurant_name.text = data?.name
-            //itemView.tv_restaurant_description.text = data?.
-            //itemView.tv_restaurant_rating.text =data?.
             itemView.tv_restaurant_price.text = data?.price.toString() + " $"
             itemView.img_restaurant.load(it.image.toUri())
 
